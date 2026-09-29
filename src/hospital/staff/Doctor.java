@@ -3,6 +3,7 @@ package hospital.staff;
 import hospital.records.MedicalRecordService;
 
 public final class Doctor extends Staff {
+    String vaccine;
 
     private final String licenceNumber;
     private final String specialty;
