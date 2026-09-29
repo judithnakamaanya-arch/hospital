@@ -7,6 +7,7 @@ import java.util.List;
 
 class FinanceLedger {
     String name="joan";
+    String age="60";
 
     private final List<FinancialRecord> records = new ArrayList<>();
     private int invoiceCounter = 1000;
