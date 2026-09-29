@@ -6,7 +6,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class Patient {
-
+String vaccination;
+String appointment;
     private final String patientId;
     private final String fullName;
     private LocalDate appointmentDate;

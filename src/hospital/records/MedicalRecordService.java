@@ -8,6 +8,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MedicalRecordService {
+    String prescription;
+    String dosage;
+
 
     private final Map<String, Patient> patients = new LinkedHashMap<>();
 
