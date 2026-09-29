@@ -1,0 +1,38 @@
+Test file placed in package hospital.app (outside records/staff/admin) and compiled against the project:
+
+package hospital.app;
+import hospital.admin.Administrator;
+import hospital.records.*;
+import hospital.staff.*;
+public class Violations {
+  void test(MedicalRecordService records, Receptionist receptionist, Administrator admin, Doctor doctor, Patient p) {
+    records.viewMedicalRecord(receptionist, "P100");
+    records.viewMedicalRecord(admin, "P100");
+    p.getDiagnosis();
+    hospital.admin.FinancialRecord r = null;
+    doctor.logAccess("fake entry");
+    String lic = doctor.licenceNumber;
+  }
+}
+
+javac output:
+hospital/app/Violations.java:7: error: incompatible types: Receptionist cannot be converted to Doctor
+    records.viewMedicalRecord(receptionist, "P100");
+                              ^
+hospital/app/Violations.java:8: error: incompatible types: Administrator cannot be converted to Doctor
+    records.viewMedicalRecord(admin, "P100");
+                              ^
+hospital/app/Violations.java:9: error: getDiagnosis() is not public in Patient; cannot be accessed from outside package
+    p.getDiagnosis();
+     ^
+hospital/app/Violations.java:10: error: FinancialRecord is not public in hospital.admin; cannot be accessed from outside package
+    hospital.admin.FinancialRecord r = null;
+                  ^
+hospital/app/Violations.java:11: error: logAccess(String) has protected access in Staff
+    doctor.logAccess("fake entry");
+          ^
+hospital/app/Violations.java:12: error: licenceNumber has private access in Doctor
+    String lic = doctor.licenceNumber;
+                       ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+6 errors

@@ -1,0 +1,35 @@
+
+=== 1. Receptionist registers patients (basic details only) ===
+  Registered: P100 | John Mukasa | Appointment: 2026-10-02 (by Brian Okello)
+  [AUDIT] Receptionist Brian Okello (R001): registered patient P100
+  Registered: P101 | Amina Nakato | Appointment: 2026-10-03 (by Brian Okello)
+  [AUDIT] Receptionist Brian Okello (R001): registered patient P101
+
+=== 2. Receptionist views and reschedules (allowed) ===
+  [AUDIT] Receptionist Brian Okello (R001): viewed basic details of P100
+  Name: John Mukasa, Appointment: 2026-10-02
+  Amina Nakato rescheduled to 2026-10-05 by Brian Okello
+  [AUDIT] Receptionist Brian Okello (R001): rescheduled P101
+
+=== 3. Doctor reads and updates medical information (allowed) ===
+  [AUDIT] Doctor Sarah Namubiru (D001): updated diagnosis of P100
+  [AUDIT] Doctor Sarah Namubiru (D001): prescribed 'Artemether-Lumefantrine 80/480mg, 3 days' to P100
+  [AUDIT] Doctor Sarah Namubiru (D001): viewed medical record of P100
+  Patient: John Mukasa
+    Diagnosis:      Malaria (P. falciparum)
+    Prescriptions:  [Artemether-Lumefantrine 80/480mg, 3 days (Dr. Sarah Namubiru)]
+    Clinical notes: [Diagnosis updated by Dr. Sarah Namubiru]
+
+=== 4. Administrator manages financial records (allowed, admin package only) ===
+  [AUDIT] Administrator Grace Atim (A001): posted INV-1001 for P100
+  [AUDIT] Administrator Grace Atim (A001): posted INV-1002 for P100
+  [AUDIT] Administrator Grace Atim (A001): posted INV-1003 for P101
+  [AUDIT] Administrator Grace Atim (A001): opened the finance ledger
+    INV-1001 | P100 | Consultation               | UGX       50,000 | PAID
+    INV-1002 | P100 | Laboratory - malaria test  | UGX       25,000 | OUTSTANDING
+    INV-1003 | P101 | Consultation               | UGX       50,000 | OUTSTANDING
+    Total billed: UGX 125,000 | Outstanding: UGX 75,000
+
+=== 5. What is BLOCKED (each line below fails to COMPILE if uncommented) ===
+  See the commented lines in HospitalApp.java and AccessViolations.txt
+  for the exact compiler errors each attempt produces.
